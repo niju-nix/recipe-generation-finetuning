@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+notebooks/.venv/
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+notebooks/.env
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/_todelete/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local paper/archive material
+docs/papers/
+
+# Data and generated artifacts
+data/
+runs/
+
+# Optional placeholders
+!data/.gitkeep
+!runs/.gitkeep
