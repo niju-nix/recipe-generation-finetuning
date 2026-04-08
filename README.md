@@ -19,6 +19,16 @@ All runs evaluated on 10,000 recipes. Scores are LLM-as-judge ratings on a 1–5
 | LoRA r=16 | 10,000 | 3.58 | 61.8% | 3.82 | 3.68 | 3.33 | 3.60 | 3.82 | 2.87 | 4.65 | 3.22 |
 | LoRA r=32 | 10,000 | 3.58 | 61.8% | 3.81 | 3.70 | 3.34 | 3.60 | 3.84 | 2.87 | 4.66 | 3.24 |
 
+
+### Training curves
+
+Loss curves for LoRA r=16 comparing lr=1e-4 vs lr=2e-5 (1 epoch, 80k samples):
+
+![Loss curves](results/visualizations/loss_curves_lr_comparison.png)
+
+> Both runs converge to the same eval/loss floor (~1.215) with no overfitting,
+> confirming epoch count as the binding constraint rather than learning rate.
+
 ### Key findings
 
 - **The base model outperforms both LoRA variants across all 8 dimensions** — a counterintuitive result that points to likely causes: the LoRA models were evaluated before sufficient training epochs, and the base model benefits from strong prior instruction-following on recipe-style prompts. This is an active area of investigation.
@@ -140,14 +150,3 @@ If running notebooks locally, point your kernel to the same environment where re
 | Compute | [RunPod](https://runpod.io) (Fine-tuning and Inference) |
 | Model hosting | [Hugging Face Hub](https://huggingface.co) |
 
----
-
-## Not stored in Git
-
-| Path | Reason |
-|---|---|
-| `data/` | Raw and processed datasets — download from RecipeNLG |
-| `runs/` | Inference and evaluation artifacts — generated locally |
-| `notebooks/.venv/` | Local virtual environment |
-| `notebooks/.env` | Local secrets |
-| `notebooks/_todelete/` | Notebook scratch archives |
