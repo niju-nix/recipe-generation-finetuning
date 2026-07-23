@@ -1,0 +1,190 @@
+[
+  {
+    "name": "dataset_style_classic_pasta",
+    "category": "dataset_like",
+    "notes": "Simple familiar dinner recipe with short ingredient list.",
+    "payload": {
+      "title": "Tomato Pasta",
+      "ingredients": [
+        "pasta",
+        "tomatoes",
+        "garlic",
+        "olive oil",
+        "salt"
+      ],
+      "temperature": 0.0,
+      "top_p": 0.95,
+      "max_tokens": 512
+    },
+    "expectations": {
+      "must_include_any": ["1.", "2."],
+      "must_not_include": ["Ingredients:"]
+    }
+  },
+  {
+    "name": "dataset_style_baked_chicken",
+    "category": "dataset_like",
+    "notes": "Protein-based main dish with seasoning and roasting steps.",
+    "payload": {
+      "title": "Baked Lemon Chicken",
+      "ingredients": [
+        "chicken thighs",
+        "lemon",
+        "garlic",
+        "olive oil",
+        "salt",
+        "black pepper",
+        "oregano"
+      ],
+      "temperature": 0.0,
+      "top_p": 0.95,
+      "max_tokens": 512
+    },
+    "expectations": {
+      "must_include_any": ["1.", "2.", "3."],
+      "must_not_include": ["Ingredients:"]
+    }
+  },
+  {
+    "name": "dataset_style_vegetable_soup",
+    "category": "dataset_like",
+    "notes": "Soup format that should trigger saute then simmer flow.",
+    "payload": {
+      "title": "Vegetable Soup",
+      "ingredients": [
+        "carrots",
+        "celery",
+        "onion",
+        "garlic",
+        "vegetable broth",
+        "salt",
+        "pepper",
+        "parsley"
+      ],
+      "temperature": 0.0,
+      "top_p": 0.95,
+      "max_tokens": 512
+    },
+    "expectations": {
+      "must_include_any": ["1.", "2."],
+      "must_not_include": ["Ingredients:"]
+    }
+  },
+  {
+    "name": "real_world_garlic_butter_rice",
+    "category": "real_world",
+    "notes": "Minimal pantry-style app prompt with limited ingredients.",
+    "payload": {
+      "title": "Garlic Butter Rice",
+      "ingredients": [
+        "rice",
+        "butter",
+        "garlic",
+        "water",
+        "salt",
+        "parsley"
+      ],
+      "temperature": 0.0,
+      "top_p": 0.95,
+      "max_tokens": 512
+    },
+    "expectations": {
+      "must_include_any": ["1.", "2."],
+      "must_not_include": ["Ingredients:"]
+    }
+  },
+  {
+    "name": "real_world_breakfast_omelette",
+    "category": "real_world",
+    "notes": "Short breakfast recipe where overlong output would be a bad sign.",
+    "payload": {
+      "title": "Spinach Mushroom Omelette",
+      "ingredients": [
+        "eggs",
+        "mushrooms",
+        "spinach",
+        "butter",
+        "salt",
+        "black pepper"
+      ],
+      "temperature": 0.0,
+      "top_p": 0.95,
+      "max_tokens": 384
+    },
+    "expectations": {
+      "must_include_any": ["1.", "2."],
+      "must_not_include": ["Ingredients:"]
+    }
+  },
+  {
+    "name": "real_world_baking_cookies",
+    "category": "real_world",
+    "notes": "Baking case that should usually include oven/preheat behavior.",
+    "payload": {
+      "title": "Chocolate Chip Cookies",
+      "ingredients": [
+        "flour",
+        "butter",
+        "brown sugar",
+        "eggs",
+        "vanilla extract",
+        "baking soda",
+        "chocolate chips",
+        "salt"
+      ],
+      "temperature": 0.0,
+      "top_p": 0.95,
+      "max_tokens": 512
+    },
+    "expectations": {
+      "must_include_any": ["1.", "2.", "3."],
+      "must_not_include": ["Ingredients:"]
+    }
+  },
+  {
+    "name": "edge_case_sparse_ingredients",
+    "category": "edge_case",
+    "notes": "Very sparse list to see whether the model stays concise and grounded.",
+    "payload": {
+      "title": "Herb Toast",
+      "ingredients": [
+        "bread",
+        "butter",
+        "dried oregano",
+        "salt"
+      ],
+      "temperature": 0.0,
+      "top_p": 0.95,
+      "max_tokens": 256
+    },
+    "expectations": {
+      "must_include_any": ["1."],
+      "must_not_include": ["Ingredients:"]
+    }
+  },
+  {
+    "name": "edge_case_unusual_combination",
+    "category": "edge_case",
+    "notes": "Unusual but plausible flavor combination to check hallucination control.",
+    "payload": {
+      "title": "Spicy Peanut Noodles",
+      "ingredients": [
+        "noodles",
+        "peanut butter",
+        "soy sauce",
+        "garlic",
+        "lime juice",
+        "chili flakes",
+        "sesame oil",
+        "water"
+      ],
+      "temperature": 0.0,
+      "top_p": 0.95,
+      "max_tokens": 512
+    },
+    "expectations": {
+      "must_include_any": ["1.", "2."],
+      "must_not_include": ["Ingredients:"]
+    }
+  }
+]

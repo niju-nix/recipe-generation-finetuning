@@ -130,6 +130,20 @@ If running notebooks locally, point your kernel to the same environment where re
 
 **Compute:** Fine-tuning and inference were run on RunPod GPU instances. Local execution of training notebooks is not recommended without a CUDA-capable GPU.
 
+## Deployment
+
+A minimal RunPod deployment package is included under [`deploy/`](deploy/README.md).
+
+- Container image: `deploy/Dockerfile`
+- Startup script: `deploy/start.sh`
+- Runtime config: `deploy/.env.example`
+- Post-deploy validation: `python -m scripts.smoke_test --base-url https://YOUR-ENDPOINT`
+
+The deployment serves the merged fine-tuned Hugging Face model through the vLLM
+OpenAI-compatible API, plus a small `/generate-recipe` wrapper endpoint that
+accepts `title` and `ingredients` directly. It supports switching between the
+published fine-tuned artifacts via the `MODEL_PATH` environment variable.
+
 ---
 
 ## Tech stack
@@ -149,4 +163,3 @@ If running notebooks locally, point your kernel to the same environment where re
 | LLM-as-judge | Qwen2.5-7B via [openrouter.ai](https://openrouter.ai) |
 | Compute | [RunPod](https://runpod.io) (Fine-tuning and Inference) |
 | Model hosting | [Hugging Face Hub](https://huggingface.co) |
-
